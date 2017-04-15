@@ -14,11 +14,14 @@ and open the template in the editor.
         </action>
         <action name="myAction" class="demo.MyAction">
             <result name="GENERAL_TAGS">/generalTags.jsp</result>
-            <result name="UI_COMPONENT_TAGS">/componentTags.jsp</result>
+            <result name="UI_COMPONENT_TAGS">/uiComponentTags.jsp</result>
             <result name="RESULT_IN_DETAIL">/resultInDetail.jsp</result>
         </action>
         <action name="anotherAction">
             <result>/anotherActionResult.jsp</result>
+        </action>
+        <action name="register" class="demo.Register">
+            <result>/index.html</result>
         </action>
     </package>
 </struts>
