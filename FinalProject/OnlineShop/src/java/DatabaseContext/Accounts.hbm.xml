@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 16, 2017 12:10:20 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="OnlineShopDb" name="DatabaseContext.Accounts" optimistic-lock="version" schema="dbo" table="Accounts">
+    <id name="accountId" type="int">
+      <column name="AccountId"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="username" type="string">
+      <column length="50" name="Username" not-null="true"/>
+    </property>
+    <property name="password" type="string">
+      <column length="50" name="Password" not-null="true"/>
+    </property>
+    <property name="email" type="string">
+      <column length="50" name="Email" not-null="true"/>
+    </property>
+    <property name="birthday" type="date">
+      <column length="10" name="Birthday"/>
+    </property>
+    <property name="address" type="serializable">
+      <column name="Address"/>
+    </property>
+    <property name="score" type="java.lang.Integer">
+      <column name="Score"/>
+    </property>
+    <property name="accountType" type="string">
+      <column length="50" name="AccountType"/>
+    </property>
+    <property name="actived" type="boolean">
+      <column name="Actived" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="commentses" table="Comments">
+      <key>
+        <column name="AccountId"/>
+      </key>
+      <one-to-many class="DatabaseContext.Comments"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="cartses" table="Carts">
+      <key>
+        <column name="AccountId"/>
+      </key>
+      <one-to-many class="DatabaseContext.Carts"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="ratings" table="Rating">
+      <key>
+        <column name="AccountId"/>
+      </key>
+      <one-to-many class="DatabaseContext.Ratings"/>
+    </set>
+  </class>
+</hibernate-mapping>

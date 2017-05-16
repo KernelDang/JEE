@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 16, 2017 12:10:20 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DatabaseContext.Ratings" table="Ratings" schema="dbo" catalog="OnlineShopDb" optimistic-lock="version">
+        <id name="ratingId" type="int">
+            <column name="RatingId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="accounts" class="DatabaseContext.Accounts" fetch="select">
+            <column name="AccountId" />
+        </many-to-one>
+        <many-to-one name="products" class="DatabaseContext.Products" fetch="select">
+            <column name="ProductId" />
+        </many-to-one>
+        <property name="score" type="java.lang.Integer">
+            <column name="Score" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 16, 2017 12:10:20 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DatabaseContext.Orders" table="Orders" schema="dbo" catalog="OnlineShopDb" optimistic-lock="version">
+        <id name="orderId" type="int">
+            <column name="OrderId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="carts" class="DatabaseContext.Carts" fetch="select">
+            <column name="CartId" />
+        </many-to-one>
+        <property name="receiverName" type="serializable">
+            <column name="ReceiverName" not-null="true" />
+        </property>
+        <property name="receivingAddress" type="serializable">
+            <column name="ReceivingAddress" not-null="true" />
+        </property>
+        <property name="receiverPhoneNumber" type="string">
+            <column name="ReceiverPhoneNumber" length="50" not-null="true" />
+        </property>
+        <property name="scheduleReceivedDate" type="timestamp">
+            <column name="ScheduleReceivedDate" length="23" />
+        </property>
+        <property name="receivedDate" type="timestamp">
+            <column name="ReceivedDate" length="23" />
+        </property>
+        <property name="paid" type="java.lang.Boolean">
+            <column name="Paid" />
+        </property>
+    </class>
+</hibernate-mapping>
