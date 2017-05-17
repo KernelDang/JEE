@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated May 16, 2017 12:10:20 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 17, 2017 3:24:21 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="DatabaseContext.Suppliers" table="Suppliers" schema="dbo" catalog="OnlineShopDb" optimistic-lock="version">
-        <id name="supplierId" type="int">
+    <class name="model.Supplier" table="supplier" catalog="onlineshopdb" optimistic-lock="version">
+        <id name="supplierId" type="java.lang.Integer">
             <column name="SupplierId" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
-        <property name="supplierName" type="serializable">
-            <column name="SupplierName" not-null="true" />
+        <property name="supplierName" type="string">
+            <column name="SupplierName" length="50" not-null="true" />
         </property>
-        <property name="address" type="serializable">
-            <column name="Address" />
+        <property name="address" type="string">
+            <column name="Address" length="50" />
         </property>
         <property name="phoneNumber" type="string">
             <column name="PhoneNumber" length="50" />
@@ -20,11 +20,11 @@
         <property name="email" type="string">
             <column name="Email" length="50" />
         </property>
-        <set name="productses" table="Products" inverse="true" lazy="true" fetch="select">
+        <set name="products" table="product" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="SupplierId" />
             </key>
-            <one-to-many class="DatabaseContext.Products" />
+            <one-to-many class="model.Product" />
         </set>
     </class>
 </hibernate-mapping>

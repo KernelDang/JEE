@@ -41,20 +41,21 @@ Contributor(s):
 -->
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=OnlineShopDb</property>
-    <property name="hibernate.connection.username">sa</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/onlineshopdb?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">12345678</property>
-    <mapping resource="DatabaseContext/Carts.hbm.xml"/>
-    <mapping resource="DatabaseContext/Products.hbm.xml"/>
-    <mapping resource="DatabaseContext/Discounts.hbm.xml"/>
-    <mapping resource="DatabaseContext/CartDetails.hbm.xml"/>
-    <mapping resource="DatabaseContext/Accounts.hbm.xml"/>
-    <mapping resource="DatabaseContext/Suppliers.hbm.xml"/>
-    <mapping resource="DatabaseContext/Orders.hbm.xml"/>
-    <mapping resource="DatabaseContext/Ratings.hbm.xml"/>
-    <mapping resource="DatabaseContext/Comments.hbm.xml"/>
-    <mapping resource="DatabaseContext/Images.hbm.xml"/>
-    <mapping resource="DatabaseContext/Categories.hbm.xml"/>
+    <mapping resource="model/Order.hbm.xml"/>
+    <mapping resource="model/Account.hbm.xml"/>
+    <mapping resource="model/Cartdetail.hbm.xml"/>
+    <mapping resource="model/Rating.hbm.xml"/>
+    <mapping resource="model/Category.hbm.xml"/>
+    <mapping resource="model/Supplier.hbm.xml"/>
+    <mapping resource="model/Comment.hbm.xml"/>
+    <mapping resource="model/Cart.hbm.xml"/>
+    <mapping resource="model/Product.hbm.xml"/>
+    <mapping resource="model/Discount.hbm.xml"/>
+    <mapping resource="model/Image.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

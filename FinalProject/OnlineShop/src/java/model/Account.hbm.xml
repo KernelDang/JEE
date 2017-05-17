@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 17, 2017 3:24:21 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Account" table="account" catalog="onlineshopdb" optimistic-lock="version">
+        <id name="accountId" type="java.lang.Integer">
+            <column name="AccountId" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="Username" length="50" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="50" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="50" not-null="true" />
+        </property>
+        <property name="birthday" type="date">
+            <column name="Birthday" length="10" />
+        </property>
+        <property name="address" type="string">
+            <column name="Address" length="50" />
+        </property>
+        <property name="score" type="java.lang.Integer">
+            <column name="Score" />
+        </property>
+        <property name="accountType" type="string">
+            <column name="AccountType" length="50" />
+        </property>
+        <property name="actived" type="boolean">
+            <column name="Actived" not-null="true" />
+        </property>
+        <set name="comments" table="comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="AccountId" />
+            </key>
+            <one-to-many class="model.Comment" />
+        </set>
+        <set name="carts" table="cart" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="AccountId" />
+            </key>
+            <one-to-many class="model.Cart" />
+        </set>
+        <set name="ratings" table="rating" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="AccountId" />
+            </key>
+            <one-to-many class="model.Rating" />
+        </set>
+    </class>
+</hibernate-mapping>

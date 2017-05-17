@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 17, 2017 3:24:21 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Product" table="product" catalog="onlineshopdb" optimistic-lock="version">
+        <id name="productId" type="java.lang.Integer">
+            <column name="ProductId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="supplier" class="model.Supplier" fetch="select">
+            <column name="SupplierId" />
+        </many-to-one>
+        <property name="productName" type="string">
+            <column name="ProductName" length="100" not-null="true" />
+        </property>
+        <property name="priceUnit" type="big_decimal">
+            <column name="PriceUnit" scale="4" not-null="true" />
+        </property>
+        <property name="calculationUnit" type="string">
+            <column name="CalculationUnit" length="50" not-null="true" />
+        </property>
+        <property name="remainQuanlity" type="java.lang.Integer">
+            <column name="RemainQuanlity" />
+        </property>
+        <property name="description" type="string">
+            <column name="Description" length="1000" />
+        </property>
+        <set name="cartdetails" table="cartdetail" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ProductId" />
+            </key>
+            <one-to-many class="model.Cartdetail" />
+        </set>
+        <set name="images" table="image" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ProductId" />
+            </key>
+            <one-to-many class="model.Image" />
+        </set>
+        <set name="ratings" table="rating" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ProductId" />
+            </key>
+            <one-to-many class="model.Rating" />
+        </set>
+        <set name="categories" table="productcategory" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="ProductId" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.Category">
+                <column name="CategoryId" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="discounts" table="productdiscount" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="ProductId" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.Discount">
+                <column name="DiscountId" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="comments" table="comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ProductId" />
+            </key>
+            <one-to-many class="model.Comment" />
+        </set>
+    </class>
+</hibernate-mapping>
