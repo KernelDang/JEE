@@ -1,21 +1,20 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated May 17, 2017 3:24:21 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="model.Cartdetail" table="cartdetail" catalog="onlineshopdb" optimistic-lock="version">
-        <id name="cartDetailId" type="java.lang.Integer">
-            <column name="CartDetailId" />
-            <generator class="identity" />
-        </id>
-        <many-to-one name="cart" class="model.Cart" fetch="select">
-            <column name="CartId" />
-        </many-to-one>
-        <many-to-one name="product" class="model.Product" fetch="select">
-            <column name="ProductId" />
-        </many-to-one>
-        <property name="quantity" type="java.lang.Integer">
-            <column name="Quantity" />
-        </property>
-    </class>
+  <class catalog="onlineshopdb" name="model.CartDetail" optimistic-lock="version" table="cartdetail">
+    <id name="cartDetailId" type="java.lang.Integer">
+      <column name="CartDetailId"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="model.Cart" fetch="select" name="cart">
+      <column name="CartId"/>
+    </many-to-one>
+    <many-to-one class="model.Product" fetch="select" name="product">
+      <column name="ProductId"/>
+    </many-to-one>
+    <property name="quantity" type="java.lang.Integer">
+      <column name="Quantity"/>
+    </property>
+  </class>
 </hibernate-mapping>
