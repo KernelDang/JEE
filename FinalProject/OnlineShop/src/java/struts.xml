@@ -5,6 +5,9 @@
 <struts>
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
-        
+        <action name="login" class="action.Login">
+            <result name="success">index.jsp</result>
+            <result name="error">about.jsp</result>
+        </action>
     </package>
 </struts>
