@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated May 17, 2017 3:24:21 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 2, 2017 8:56:10 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.Category" table="category" catalog="onlineshopdb" optimistic-lock="version">
         <id name="categoryId" type="java.lang.Integer">
@@ -17,19 +17,17 @@
         <property name="icon" type="string">
             <column name="Icon" length="50" />
         </property>
+        <set name="products" table="product" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CategoryId" />
+            </key>
+            <one-to-many class="model.Product" />
+        </set>
         <set name="categories" table="category" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="ParentId" />
             </key>
             <one-to-many class="model.Category" />
-        </set>
-        <set name="products" table="productcategory" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="CategoryId" not-null="true" />
-            </key>
-            <many-to-many entity-name="model.Product">
-                <column name="ProductId" not-null="true" />
-            </many-to-many>
         </set>
     </class>
 </hibernate-mapping>

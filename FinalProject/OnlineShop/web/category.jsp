@@ -40,71 +40,7 @@
     <body class="main-menu-fixed product-category-17 page-category layout-fullwidth">
         <div class="row-offcanvas row-offcanvas-left">
             <div id="page">
-                <div id="topbar">
-                    <div class="container">
-                        <div class="show-desktop">
-                            <div class="quick-top-link pull-right">
-                                <ul class="links hidden-xs">
-                                    <li><a href="cart.jsp"><i class="fa fa-bookmark"></i>Giỏ hàng</a></li>
-                                    <li><a class="last" href="cart.jsp"><i class="fa fa-share"></i>Thanh toán</a></li>
-                                </ul>
-
-                                <!-- Single button -->
-                                <div class="btn-group setting">
-                                    <div class="dropdown-toggle btn-theme-normal" data-toggle="dropdown">
-                                        <i class="fa fa-cog"></i>
-                                        <span class="text-label">Tùy chọn</span>
-                                        <span class="fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="quick-setting dropdown-menu">
-                                        <div class="language">
-                                            <form action="#" method="post" enctype="multipart/form-data" id="language">
-                                                <div class=" box-language">
-                                                    <label>Ngôn ngữ</label>
-                                                    <ul class=" langs-wrapper">
-                                                        <li>
-                                                            <a href="ar"><img src="image/flags/ar.png" alt="Arabic" title="Arabic" /> Tiếng Việt</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="en"><img src="image/flags/gb.png" alt="English" title="English" /> English</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="currency">
-                                            <form action="#" method="post" id="currency">
-                                                <div class="box-currency">
-                                                    <label>Đơn vị</label>
-                                                    <ul class="">
-                                                        <li><button class="currency-select list-item" type="button" name="EUR">đ</button>: VNĐ</li>
-                                                        <li><button class="currency-select list-item" type="button" name="USD">$ </button>: USD</li>
-                                                    </ul>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="show-mobile hidden-lg hidden-md hidden-sm">
-                            <div class="quick-access btn-group pull-right">
-                                <div class="dropdown-toggle btn-theme-normal" data-toggle="dropdown">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span>Giỏ hàng</span>
-                                    <i class="fa fa-angle-down"></i>
-                                </div>
-                                <div class="inner-toggle dropdown-menu quick-setting">
-                                    <ul class="links">
-                                        <li><a href="cart.jsp"><i class="fa fa-bookmark"></i>Giỏ hàng</a></li>
-                                        <li><a class="last" href="cart.jsp"><i class="fa fa-share"></i>Thanh toán</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <%@include file="WEB-INF/jspf/topbar.jspf" %>
 
                 <!-- header -->
                 <header id="header">
@@ -113,7 +49,7 @@
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 logo inner">
                                     <div id="logo-theme" class="logo-store pull-left">
-                                        <a href="index.jsp" class="img-responsive"><span>SportShop</span></a>
+                                        <a href="home" class="img-responsive"><span>SportShop</span></a>
                                     </div>
                                 </div>
 
@@ -131,66 +67,6 @@
                                             <h4><a href="javascript:void(0);">Quà hàng tuần</a></h4>
 
                                             <p><a href="javascript:void(0);">Quà tặng</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 shopping-cart inner ">
-                                    <div class="cart-top">
-                                        <div id="cart" class="clearfix">
-                                            <div data-toggle="dropdown" data-loading-text="Loading..." class="heading media text-center dropdown-toggle">
-                                                <i class="fa fa-shopping-cart icon-cart"></i>
-                                                <span id="cart-total">2 sản phẩm- 550.000đ</span>
-                                            </div>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <div class="mini-cart-info">
-                                                        <table class="">
-                                                            <tr>
-                                                                <td class="text-left">
-                                                                    <a href="product.jsp"><img src="image/cache/catalog/demo/7-70x71.png" alt="Double layer super soft" title="Bóng rỗ FQGS2" class="img-thumbnail" /></a>
-                                                                </td>
-                                                                <td class="text-left"><a href="product.jsp">Bóng rỗ FQGS2</a>
-                                                                </td>
-                                                                <td class="text-right">x 1</td>
-                                                                <td class="text-right">150.000đ</td>
-                                                                <td class="text-center"><button type="button" onclick="cart.remove('26');" title="Xóa khỏi giỏ hàng" class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-left">
-                                                                    <a href="product.jsp"><img src="image/cache/catalog/demo/11-70x71.png" alt="Crossed Shirt - Belugas" title="Áo thun thể thao" class="img-thumbnail" /></a>
-                                                                </td>
-                                                                <td class="text-left"><a href="product.jsp">Áo thun thể thao</a>
-                                                                </td>
-                                                                <td class="text-right">x 1</td>
-                                                                <td class="text-right">350.000đ</td>
-                                                                <td class="text-center"><button type="button" onclick="cart.remove('25');" title="Xóa khỏi giỏ hàng" class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <div class="mini-cart-total">
-                                                        <table class="">
-                                                            <tr>
-                                                                <td class="text-right"><strong>Tổng</strong></td>
-                                                                <td class="text-right">500.000đ</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-right"><strong>Thuế VAT (10%)</strong></td>
-                                                                <td class="text-right">50.000đ</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-right"><strong>Tổng cộng</strong></td>
-                                                                <td class="text-right">550.000đ</td>
-                                                            </tr>
-                                                        </table>
-
-                                                        <p class="checkout text-right"><a href="cart.jsp"><strong class="button btn btn-outline-inverse"><i class="fa fa-shopping-cart"></i> Xem giỏ hàng</strong></a>&nbsp;&nbsp;&nbsp;<a href="checkout.html"><strong class="button btn btn-outline-inverse"><i class="fa fa-share"></i> Thanh toán</strong></a></p>
-                                                    </div>
-                                                </li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -218,7 +94,7 @@
                                                             </a>
                                                             <div class="collapse navbar-collapse navbar-ex1-collapse">
                                                                 <ul class="nav navbar-nav megamenu">
-                                                                    <li class="home"><a href="index.jsp"><span class="menu-title">Trang chủ</span></a></li>
+                                                                    <li class="home"><a href="home"><span class="menu-title">Trang chủ</span></a></li>
                                                                     <li><a href="about.jsp"><span class="menu-title">Giới thiệu</span></a></li>
                                                                     <li class=" aligned-left parent dropdown "><a href="category.jsp" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-title">Sản phẩm</span><b class="caret"></b></a>
                                                                         <div class="dropdown-menu" style="width:700px">
@@ -436,7 +312,7 @@
                 <div class="container">
 
                     <ul class="breadcrumb">
-                        <li><a href="index.jsp"><i class="fa fa-home"></i></a></li>
+                        <li><a href="home"><i class="fa fa-home"></i></a></li>
                         <li><a href="category.jsp">Áo thể thao</a></li>
                     </ul>
                     <div class="row">
@@ -668,7 +544,7 @@
                                                     <div class="right">
                                                         <div class="action">
                                                             <div class="cart">
-                                                                <button onclick="window.location.href = 'cart.jsp'" class="btn btn-shopping-cart btn-outline-inverse">
+                                                                <button onclick="window.location.href = 'cart'" class="btn btn-shopping-cart btn-outline-inverse">
                                                                     <span class="fa fa-shopping-cart"></span>
                                                                     Mua ngay
                                                                 </button>
@@ -719,7 +595,7 @@
                                                     <div class="right">
                                                         <div class="action">
                                                             <div class="cart">
-                                                                <button onclick="window.location.href = 'cart.jsp'" class="btn btn-shopping-cart btn-outline-inverse">
+                                                                <button onclick="window.location.href = 'cart'" class="btn btn-shopping-cart btn-outline-inverse">
                                                                     <span class="fa fa-shopping-cart"></span>
                                                                     Mua ngay
                                                                 </button>
@@ -770,7 +646,7 @@
                                                     <div class="right">
                                                         <div class="action">
                                                             <div class="cart">
-                                                                <button onclick="window.location.href = 'cart.jsp'" class="btn btn-shopping-cart btn-outline-inverse">
+                                                                <button onclick="window.location.href = 'cart'" class="btn btn-shopping-cart btn-outline-inverse">
                                                                     <span class="fa fa-shopping-cart"></span>
                                                                     Mua ngay
                                                                 </button>
@@ -823,7 +699,7 @@
                                                     <div class="right">
                                                         <div class="action">
                                                             <div class="cart">
-                                                                <button onclick="window.location.href = 'cart.jsp'" class="btn btn-shopping-cart btn-outline-inverse">
+                                                                <button onclick="window.location.href = 'cart'" class="btn btn-shopping-cart btn-outline-inverse">
                                                                     <span class="fa fa-shopping-cart"></span>
                                                                     Mua ngay
                                                                 </button>
@@ -874,7 +750,7 @@
                                                     <div class="right">
                                                         <div class="action">
                                                             <div class="cart">
-                                                                <button onclick="window.location.href = 'cart.jsp'" class="btn btn-shopping-cart btn-outline-inverse">
+                                                                <button onclick="window.location.href = 'cart'" class="btn btn-shopping-cart btn-outline-inverse">
                                                                     <span class="fa fa-shopping-cart"></span>
                                                                     Mua ngay
                                                                 </button>
@@ -925,7 +801,7 @@
                                                     <div class="right">
                                                         <div class="action">
                                                             <div class="cart">
-                                                                <button onclick="window.location.href = 'cart.jsp'" class="btn btn-shopping-cart btn-outline-inverse">
+                                                                <button onclick="window.location.href = 'cart'" class="btn btn-shopping-cart btn-outline-inverse">
                                                                     <span class="fa fa-shopping-cart"></span>
                                                                     Mua ngay
                                                                 </button>
@@ -978,7 +854,7 @@
                                                     <div class="right">
                                                         <div class="action">
                                                             <div class="cart">
-                                                                <button onclick="window.location.href = 'cart.jsp'" class="btn btn-shopping-cart btn-outline-inverse">
+                                                                <button onclick="window.location.href = 'cart'" class="btn btn-shopping-cart btn-outline-inverse">
                                                                     <span class="fa fa-shopping-cart"></span>
                                                                     Mua ngay
                                                                 </button>
@@ -1029,7 +905,7 @@
                                                     <div class="right">
                                                         <div class="action">
                                                             <div class="cart">
-                                                                <button onclick="window.location.href = 'cart.jsp'" class="btn btn-shopping-cart btn-outline-inverse">
+                                                                <button onclick="window.location.href = 'cart'" class="btn btn-shopping-cart btn-outline-inverse">
                                                                     <span class="fa fa-shopping-cart"></span>
                                                                     Mua ngay
                                                                 </button>
@@ -1080,7 +956,7 @@
                                                     <div class="right">
                                                         <div class="action">
                                                             <div class="cart">
-                                                                <button onclick="window.location.href = 'cart.jsp'" class="btn btn-shopping-cart btn-outline-inverse">
+                                                                <button onclick="window.location.href = 'cart'" class="btn btn-shopping-cart btn-outline-inverse">
                                                                     <span class="fa fa-shopping-cart"></span>
                                                                     Mua ngay
                                                                 </button>
@@ -1133,7 +1009,7 @@
                                                     <div class="right">
                                                         <div class="action">
                                                             <div class="cart">
-                                                                <button onclick="window.location.href = 'cart.jsp'" class="btn btn-shopping-cart btn-outline-inverse">
+                                                                <button onclick="window.location.href = 'cart'" class="btn btn-shopping-cart btn-outline-inverse">
                                                                     <span class="fa fa-shopping-cart"></span>
                                                                     Mua ngay
                                                                 </button>
@@ -1184,7 +1060,7 @@
                                                     <div class="right">
                                                         <div class="action">
                                                             <div class="cart">
-                                                                <button onclick="window.location.href = 'cart.jsp'" class="btn btn-shopping-cart btn-outline-inverse">
+                                                                <button onclick="window.location.href = 'cart'" class="btn btn-shopping-cart btn-outline-inverse">
                                                                     <span class="fa fa-shopping-cart"></span>
                                                                     Mua ngay
                                                                 </button>
@@ -1235,7 +1111,7 @@
                                                     <div class="right">
                                                         <div class="action">
                                                             <div class="cart">
-                                                                <button onclick="window.location.href = 'cart.jsp'" class="btn btn-shopping-cart btn-outline-inverse">
+                                                                <button onclick="window.location.href = 'cart'" class="btn btn-shopping-cart btn-outline-inverse">
                                                                     <span class="fa fa-shopping-cart"></span>
                                                                     Mua ngay
                                                                 </button>
@@ -1449,7 +1325,7 @@
                                             <div class="box-heading"><span>Thông tin</span></div>
                                             <div class="box-content">
                                                 <ul class="list bullet text-fill">
-                                                    <li><a href="index.jsp" data-hover="Trang chủ">Trang chủ</a></li>
+                                                    <li><a href="home" data-hover="Trang chủ">Trang chủ</a></li>
                                                     <li><a href="about.jsp" data-hover="Giới thiệu">Giới thiệu</a></li>
                                                     <li><a href="category.jsp" data-hover="Sản phẩm">Sản phẩm</a></li>
                                                     <li><a href="blog.jsp" data-hover="Tin tức">Tin tức</a></li>
@@ -1665,7 +1541,7 @@
 
                                             <div class="btn-group-justified">
                                                 <div class="cart pull-left">
-                                                    <button type="button" id="button-cart" data-loading-text="Loading..." class="btn btn-outline-inverse"><span class="fa fa-shopping-cart" onclick="window.location.href = 'cart.jsp'"></span>Thêm vào giỏ hàng</button>
+                                                    <button type="button" id="button-cart" data-loading-text="Loading..." class="btn btn-outline-inverse"><span class="fa fa-shopping-cart" onclick="window.location.href = 'cart'"></span>Thêm vào giỏ hàng</button>
                                                 </div>
                                             </div>
                                         </div>

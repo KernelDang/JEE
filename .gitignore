@@ -70,3 +70,4 @@ Exercises/
 !/FinalProject/OnlineShop/web/WEB-INF/lib/struts2/commons-io-2.4.jar
 !/FinalProject/OnlineShop/web/WEB-INF/lib/struts2/javassist-3.20.0-GA.jar
 !/FinalProject/OnlineShop/web/WEB-INF/lib/struts2/freemarker-2.3.23.jar
+!/FinalProject/OnlineShop/web/WEB-INF/lib/struts2/struts2-json-plugin-2.5.10.1.jar

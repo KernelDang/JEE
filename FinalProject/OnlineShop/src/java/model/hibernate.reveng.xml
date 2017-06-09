@@ -40,18 +40,15 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-reverse-engineering>
-    <schema-selection match-catalog="onlineshopdb"/>
-    <table-filter match-name="rating"/>
-    <table-filter match-name="account"/>
-    <table-filter match-name="category"/>
-    <table-filter match-name="cartdetail"/>
-    <table-filter match-name="order"/>
-    <table-filter match-name="productdiscount"/>
-    <table-filter match-name="image"/>
-    <table-filter match-name="product"/>
-    <table-filter match-name="discount"/>
-    <table-filter match-name="cart"/>
-    <table-filter match-name="supplier"/>
-    <table-filter match-name="comment"/>
-    <table-filter match-name="productcategory"/>
+  <schema-selection match-catalog="onlineshopdb"/>
+  <table-filter match-name="supplier"/>
+  <table-filter match-name="product"/>
+  <table-filter match-name="account"/>
+  <table-filter match-name="cartdetail"/>
+  <table-filter match-name="image"/>
+  <table-filter match-name="order"/>
+  <table-filter match-name="comment"/>
+  <table-filter match-name="rating"/>
+  <table-filter match-name="cart"/>
+  <table-filter match-name="category"/>
 </hibernate-reverse-engineering>

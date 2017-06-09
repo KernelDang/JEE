@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated May 17, 2017 3:24:21 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 2, 2017 8:56:10 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.Account" table="account" catalog="onlineshopdb" optimistic-lock="version">
         <id name="accountId" type="java.lang.Integer">
@@ -9,7 +9,13 @@
             <generator class="identity" />
         </id>
         <property name="username" type="string">
-            <column name="Username" length="50" not-null="true" />
+            <column name="Username" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="FirstName" length="45" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="LastName" length="45" not-null="true" />
         </property>
         <property name="password" type="string">
             <column name="Password" length="50" not-null="true" />

@@ -1,69 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated May 17, 2017 3:24:21 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 2, 2017 8:56:10 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class catalog="onlineshopdb" name="model.Product" optimistic-lock="version" table="product">
-        <id name="productId" type="java.lang.Integer">
-            <column name="ProductId"/>
-            <generator class="identity"/>
-        </id>
-        <many-to-one class="model.Supplier" fetch="select" name="supplier">
-            <column name="SupplierId"/>
-        </many-to-one>
-        <property name="productName" type="string">
-            <column length="100" name="ProductName" not-null="true"/>
-        </property>
-        <property name="priceUnit" type="big_decimal">
-            <column name="PriceUnit" not-null="true" scale="4"/>
-        </property>
-        <property name="calculationUnit" type="string">
-            <column length="50" name="CalculationUnit" not-null="true"/>
-        </property>
-        <property name="remainQuanlity" type="java.lang.Integer">
-            <column name="RemainQuanlity"/>
-        </property>
-        <property name="description" type="string">
-            <column length="1000" name="Description"/>
-        </property>
-        <set fetch="select" inverse="true" lazy="true" name="cartdetails" table="cartdetail">
-            <key>
-                <column name="ProductId"/>
-            </key>
-            <one-to-many class="model.CartDetail"/>
-        </set>
-        <set fetch="select" inverse="true" lazy="true" name="images" table="image">
-            <key>
-                <column name="ProductId"/>
-            </key>
-            <one-to-many class="model.Image"/>
-        </set>
-        <set fetch="select" inverse="true" lazy="true" name="ratings" table="rating">
-            <key>
-                <column name="ProductId"/>
-            </key>
-            <one-to-many class="model.Rating"/>
-        </set>
-        <set fetch="select" inverse="false" lazy="true" name="categories" table="productcategory">
-            <key>
-                <column name="ProductId" not-null="true"/>
-            </key>
-            <many-to-many entity-name="model.Category">
-                <column name="CategoryId" not-null="true"/>
-            </many-to-many>
-        </set>
-        <set fetch="select" inverse="false" lazy="true" name="discounts" table="productdiscount">
-            <key>
-                <column name="ProductId" not-null="true"/>
-            </key>
-            <many-to-many entity-name="model.Discount">
-                <column name="DiscountId" not-null="true"/>
-            </many-to-many>
-        </set>
-        <set fetch="select" inverse="true" lazy="true" name="comments" table="comment">
-            <key>
-                <column name="ProductId"/>
-            </key>
-            <one-to-many class="model.Comment"/>
-        </set>
-    </class>
+  <class catalog="onlineshopdb" name="model.Product" optimistic-lock="version" table="product">
+    <id name="productId" type="java.lang.Integer">
+      <column name="ProductId"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="model.Category" fetch="select" name="category">
+      <column name="CategoryId"/>
+    </many-to-one>
+    <many-to-one class="model.Supplier" fetch="select" name="supplier">
+      <column name="SupplierId"/>
+    </many-to-one>
+    <property name="productName" type="string">
+      <column length="100" name="ProductName" not-null="true"/>
+    </property>
+    <property name="priceUnit" type="big_decimal">
+      <column name="PriceUnit" not-null="true" scale="4"/>
+    </property>
+    <property name="calculationUnit" type="string">
+      <column length="50" name="CalculationUnit" not-null="true"/>
+    </property>
+    <property name="remainQuantity" type="java.lang.Integer">
+      <column name="RemainQuantity"/>
+    </property>
+    <property name="description" type="string">
+      <column length="1000" name="Description"/>
+    </property>
+    <property name="isNew" type="java.lang.Boolean">
+      <column name="IsNew"/>
+    </property>
+    <property name="isHostest" type="java.lang.Boolean">
+      <column name="IsHostest"/>
+    </property>
+    <property name="discountPercent" type="java.lang.Float">
+      <column name="DiscountPercent" precision="12" scale="0"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="cartdetails" table="cartdetail">
+      <key>
+        <column name="ProductId"/>
+      </key>
+      <one-to-many class="model.CartDetail"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="images" table="image">
+      <key>
+        <column name="ProductId"/>
+      </key>
+      <one-to-many class="model.Image"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="ratings" table="rating">
+      <key>
+        <column name="ProductId"/>
+      </key>
+      <one-to-many class="model.Rating"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="comments" table="comment">
+      <key>
+        <column name="ProductId"/>
+      </key>
+      <one-to-many class="model.Comment"/>
+    </set>
+  </class>
 </hibernate-mapping>

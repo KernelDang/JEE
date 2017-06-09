@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated May 17, 2017 3:24:21 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 2, 2017 8:56:10 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class catalog="onlineshopdb" name="model.Cart" optimistic-lock="version" table="cart">
-        <id name="cartId" type="java.lang.Integer">
-            <column name="CartId"/>
-            <generator class="identity"/>
-        </id>
-        <many-to-one class="model.Account" fetch="select" name="account">
-            <column name="AccountId"/>
-        </many-to-one>
-        <property name="totalProduct" type="java.lang.Integer">
-            <column name="TotalProduct"/>
-        </property>
-        <property name="totalPrice" type="big_decimal">
-            <column name="TotalPrice" scale="4"/>
-        </property>
-        <set fetch="select" inverse="true" lazy="true" name="orders" table="order">
-            <key>
-                <column name="CartId"/>
-            </key>
-            <one-to-many class="model.Order"/>
-        </set>
-        <set fetch="select" inverse="true" lazy="true" name="cartdetails" table="cartdetail">
-            <key>
-                <column name="CartId"/>
-            </key>
-            <one-to-many class="model.CartDetail"/>
-        </set>
-    </class>
+  <class catalog="onlineshopdb" name="model.Cart" optimistic-lock="version" table="cart">
+    <id name="cartId" type="java.lang.Integer">
+      <column name="CartId"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="model.Account" fetch="select" name="account">
+      <column name="AccountId"/>
+    </many-to-one>
+    <property name="totalProduct" type="java.lang.Integer">
+      <column name="TotalProduct"/>
+    </property>
+    <property name="totalPrice" type="big_decimal">
+      <column name="TotalPrice" scale="4"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="orders" table="order">
+      <key>
+        <column name="CartId"/>
+      </key>
+      <one-to-many class="model.Order"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="cartdetails" table="cartdetail">
+      <key>
+        <column name="CartId"/>
+      </key>
+      <one-to-many class="model.CartDetail"/>
+    </set>
+  </class>
 </hibernate-mapping>

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <!--[if IE 8 ]><html dir="ltr" lang="en" class="ie8"><![endif]-->
@@ -38,71 +39,7 @@
     <body class="main-menu-fixed checkout-cart page-checkout-cart layout-fullwidth">
         <div class="row-offcanvas row-offcanvas-left">
             <div id="page">
-                <div id="topbar">
-                    <div class="container">
-                        <div class="show-desktop">
-                            <div class="quick-top-link pull-right">
-                                <ul class="links hidden-xs">
-                                    <li><a href="cart.jsp"><i class="fa fa-bookmark"></i>Giỏ hàng</a></li>
-                                    <li><a class="last" href="cart.jsp"><i class="fa fa-share"></i>Thanh toán</a></li>
-                                </ul>
-
-                                <!-- Single button -->
-                                <div class="btn-group setting">
-                                    <div class="dropdown-toggle btn-theme-normal" data-toggle="dropdown">
-                                        <i class="fa fa-cog"></i>
-                                        <span class="text-label">Tùy chọn</span>
-                                        <span class="fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="quick-setting dropdown-menu">
-                                        <div class="language">
-                                            <form action="#" method="post" enctype="multipart/form-data" id="language">
-                                                <div class=" box-language">
-                                                    <label>Ngôn ngữ</label>
-                                                    <ul class=" langs-wrapper">
-                                                        <li>
-                                                            <a href="ar"><img src="image/flags/ar.png" alt="Arabic" title="Arabic" /> Tiếng Việt</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="en"><img src="image/flags/gb.png" alt="English" title="English" /> English</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="currency">
-                                            <form action="#" method="post" id="currency">
-                                                <div class="box-currency">
-                                                    <label>Đơn vị</label>
-                                                    <ul class="">
-                                                        <li><button class="currency-select list-item" type="button" name="EUR">đ</button>: VNĐ</li>
-                                                        <li><button class="currency-select list-item" type="button" name="USD">$ </button>: USD</li>
-                                                    </ul>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="show-mobile hidden-lg hidden-md hidden-sm">
-                            <div class="quick-access btn-group pull-right">
-                                <div class="dropdown-toggle btn-theme-normal" data-toggle="dropdown">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span>Giỏ hàng</span>
-                                    <i class="fa fa-angle-down"></i>
-                                </div>
-                                <div class="inner-toggle dropdown-menu quick-setting">
-                                    <ul class="links">
-                                        <li><a href="cart.jsp"><i class="fa fa-bookmark"></i>Giỏ hàng</a></li>
-                                        <li><a class="last" href="cart.jsp"><i class="fa fa-share"></i>Thanh toán</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <%@include file="WEB-INF/jspf/topbar.jspf" %>
 
                 <!-- header -->
                 <header id="header">
@@ -111,7 +48,7 @@
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 logo inner">
                                     <div id="logo-theme" class="logo-store pull-left">
-                                        <a href="index.jsp" class="img-responsive"><span>SportShop</span></a>
+                                        <a href="home" class="img-responsive"><span>SportShop</span></a>
                                     </div>
                                 </div>
 
@@ -129,66 +66,6 @@
                                             <h4><a href="javascript:void(0);">Quà hàng tuần</a></h4>
 
                                             <p><a href="javascript:void(0);">Quà tặng</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 shopping-cart inner ">
-                                    <div class="cart-top">
-                                        <div id="cart" class="clearfix">
-                                            <div data-toggle="dropdown" data-loading-text="Loading..." class="heading media text-center dropdown-toggle">
-                                                <i class="fa fa-shopping-cart icon-cart"></i>
-                                                <span id="cart-total">2 sản phẩm- 550.000đ</span>
-                                            </div>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <div class="mini-cart-info">
-                                                        <table class="">
-                                                            <tr>
-                                                                <td class="text-left">
-                                                                    <a href="product.jsp"><img src="image/cache/catalog/demo/7-70x71.png" alt="Double layer super soft" title="Bóng rỗ FQGS2" class="img-thumbnail" /></a>
-                                                                </td>
-                                                                <td class="text-left"><a href="product.jsp">Bóng rỗ FQGS2</a>
-                                                                </td>
-                                                                <td class="text-right">x 1</td>
-                                                                <td class="text-right">150.000đ</td>
-                                                                <td class="text-center"><button type="button" onclick="cart.remove('26');" title="Xóa khỏi giỏ hàng" class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-left">
-                                                                    <a href="product.jsp"><img src="image/cache/catalog/demo/11-70x71.png" alt="Crossed Shirt - Belugas" title="Áo thun thể thao" class="img-thumbnail" /></a>
-                                                                </td>
-                                                                <td class="text-left"><a href="product.jsp">Áo thun thể thao</a>
-                                                                </td>
-                                                                <td class="text-right">x 1</td>
-                                                                <td class="text-right">350.000đ</td>
-                                                                <td class="text-center"><button type="button" onclick="cart.remove('25');" title="Xóa khỏi giỏ hàng" class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <div class="mini-cart-total">
-                                                        <table class="">
-                                                            <tr>
-                                                                <td class="text-right"><strong>Tổng</strong></td>
-                                                                <td class="text-right">500.000đ</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-right"><strong>Thuế VAT (10%)</strong></td>
-                                                                <td class="text-right">50.000đ</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-right"><strong>Tổng cộng</strong></td>
-                                                                <td class="text-right">550.000đ</td>
-                                                            </tr>
-                                                        </table>
-
-                                                        <p class="checkout text-right"><a href="cart.jsp"><strong class="button btn btn-outline-inverse"><i class="fa fa-shopping-cart"></i> Xem giỏ hàng</strong></a>&nbsp;&nbsp;&nbsp;<a href="checkout.html"><strong class="button btn btn-outline-inverse"><i class="fa fa-share"></i> Thanh toán</strong></a></p>
-                                                    </div>
-                                                </li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -216,7 +93,7 @@
                                                             </a>
                                                             <div class="collapse navbar-collapse navbar-ex1-collapse">
                                                                 <ul class="nav navbar-nav megamenu">
-                                                                    <li class="home"><a href="index.jsp"><span class="menu-title">Trang chủ</span></a></li>
+                                                                    <li class="home"><a href="home"><span class="menu-title">Trang chủ</span></a></li>
                                                                     <li><a href="about.jsp"><span class="menu-title">Giới thiệu</span></a></li>
                                                                     <li class=" aligned-left parent dropdown "><a href="category.jsp" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-title">Sản phẩm</span><b class="caret"></b></a>
                                                                         <div class="dropdown-menu" style="width:700px">
@@ -430,8 +307,8 @@
 
                 <div class="container">
                     <ul class="breadcrumb">
-                        <li><a href="index.jsp"><i class="fa fa-home"></i></a></li>
-                        <li><a href="cart.jsp">Giỏ hàng - Thanh toán</a></li>
+                        <li><a href="home"><i class="fa fa-home"></i></a></li>
+                        <li><a href="cart">Giỏ hàng - Thanh toán</a></li>
                     </ul>
                     <style>
                         .contact-content .fa {
@@ -447,184 +324,101 @@
                                 <div class="wrapper no-margin">
                                     <h1>Thông tin giỏ hàng</h1>
                                     <div class="row contact-content">
-                                        <div class="col-xs-12">
-                                            <div class="alert alert-warning">
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                <strong>Nhắc nhở! </strong> Bạn vừa thêm một sản phẩm vào giỏ hàng của bạn
+                                        <s:if test="cart == null || cart.cartDetails.size() < 1">
+                                            <div class="col-xs-12">
+                                                <div class="alert alert-warning">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                    <strong>Nhắc nhở! </strong> Chưa có sản phẩm trong giỏ hàng
+                                                </div>
                                             </div>
-                                            <div class="alert alert-success">
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                <strong>Thông báo! </strong> Thanh toán giỏ hàng thành công
-                                                <p>
-                                                    <br>Tổng số tiền thanh toán: <span class="text-danger">550.000đ</span>. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi. Sản phẩm sẽ được chuyển đến nơi trong vòng 24 giờ kể từ lúc này.
-                                                    <a href="index.jsp" class="alert-link">Tiếp tục mua sắm</a>
-                                                </p>
-                                            </div>
-                                            <div class="alert alert-success">
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                <strong>Thông báo! </strong> Đang có 0 sản phẩm trong giỏ hàng của bạn. <a href="index.jsp" class="alert-link">Tiếp tục mua sắm</a>
-                                            </div>
-                                            <div class="alert alert-warning">
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                <strong>Nhắc nhở! </strong> Số lượng sản phẩm tối thiểu là 1. Xin cảm ơn!
-                                            </div>
-                                            <div class="alert alert-success">
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                <strong>Thông báo! </strong> Giỏ hàng đã được cập nhật thành công
-                                            </div>
-                                            <div class="alert alert-danger">
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                <strong>Cảnh báo! </strong> Sản phẩm đã được xóa khỏi giỏ hàng
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-12 col-md-7 col-xs-12">
-                                            <p>Quý khách vui lòng điền địa chỉ nhận hàng trước khi thanh toán. Xin cảm ơn!</p>
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <td>Hình</td>
-                                                            <td>Tên</td>
-                                                            <td>Mẫu</td>
-                                                            <td>Số lượng</td>
-                                                            <td>Đơn giá</td>
-                                                            <td><strong>Tổng</strong></td>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="cart-page-img">
-                                                                <a href="product.jsp"><img src="image/cache/catalog/demo/10-87x88.png" alt=""></a>
-                                                            </td>
-                                                            <td><a href="product.jsp" class="cart-pro-name">Túi xách du lịch</a></td>
-                                                            <td>2016</td>
-                                                            <td>
-                                                                <div class="input-group btn-block">
-                                                                    <input type="text" size="1" value="2" name="quantity[170]">
-                                                                    <span>
-                                                                        <a href="javascript:void(0);" title="Cập nhật giỏ hàng"><i class="fa fa-refresh"></i></a>
-                                                                        <a href="javasript:void(0);" title="Xóa khỏi giỏ hàng"><i class="fa fa-remove fa-xs"></i></a>
-                                                                    </span>
-                                                                </div>
-                                                            </td>
-                                                            <td class="cart-price">200.000đ</td>
-                                                            <td class="cart-price"><strong>400.000đ</strong></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="cart-page-img">
-                                                                <a href="product.jsp"><img src="image/cache/catalog/demo/12-87x88.png" alt="product.jsp"></a>
-                                                            </td>
-                                                            <td><a href="" class="cart-pro-name">Nón len mùa đông</a></td>
-                                                            <td>DKGD230</td>
-                                                            <td>
-                                                                <div class="input-group btn-block">
-                                                                    <input type="text" size="1" value="1" name="quantity[170]">
-                                                                    <span>
-                                                                        <a href="javascript:void(0);" title="Cập nhật giỏ hàng"><i class="fa fa-refresh"></i></a>
-                                                                        <a href="javasript:void(0);" title="Xóa khỏi giỏ hàng"><i class="fa fa-remove fa-xs"></i></a>
-                                                                    </span>
-                                                                </div>
-                                                            </td>
-                                                            <td class="cart-price">100.000đ</td>
-                                                            <td class="cart-price"><strong>100.000đ</strong></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="cart-bottom-total">
-                                                <div class="table-total  col-sm-4 col-sm-offset-8 no-padding">
-                                                    <table class=" table table-bordered">
+                                        </s:if>
+                                        <s:else>
+                                            <div class="col-sm-12 col-md-7 col-xs-12">
+                                                <p>Quý khách vui lòng điền địa chỉ nhận hàng trước khi thanh toán. Xin cảm ơn!</p>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <td>Hình</td>
+                                                                <td>Tên</td>
+                                                                <td>Số lượng</td>
+                                                                <td>Đơn giá</td>
+                                                                <td><strong>Tổng</strong></td>
+                                                            </tr>
+                                                        </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td class="text-right"><strong>Tổng:</strong></td>
-                                                                <td class="text-right"><strong>500.000đ</strong></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-right"><strong>Thuế VAT (10%):</strong></td>
-                                                                <td class="text-right text-danger">50.000đ</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-right"><strong>Tổng cộng:</strong></td>
-                                                                <td class="text-right text-danger"><strong>550.000đ</strong></td>
-                                                            </tr>
+                                                            <s:iterator value="cart.cartDetails">
+                                                                <tr>
+                                                                    <td class="cart-page-img">
+                                                                        <a href="product?productId=<s:property value="product.productId"/>"><img style="width: 60px; height: 60px;" src="<s:property value="product.images.iterator.next.url"/>" alt=""></a>
+                                                                    </td>
+                                                                    <td><a href="product?productId=<s:property value="product.productId"/>" class="cart-pro-name"><s:property value="product.productName"/></a></td>
+                                                                    <td>
+                                                                        <div class="input-group btn-block">
+                                                                            <input type="text" size="1" value="<s:property value="quantity"/>" name="quantity">
+                                                                            <span>
+                                                                                <a href="javascript:void(0);" title="Cập nhật giỏ hàng"><i class="fa fa-refresh"></i></a>
+                                                                                <a href="javasript:void(0);" title="Xóa khỏi giỏ hàng"><i class="fa fa-remove fa-xs"></i></a>
+                                                                            </span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td class="cart-price"><s:property value="product.priceUnit"/></td>
+                                                                    <td class="cart-price"><strong><s:property value="product.priceUnit * quantity"/></strong></td>
+                                                                </tr>
+                                                            </s:iterator>
                                                         </tbody>
                                                     </table>
-
                                                 </div>
-                                                <p class="form-submit">
-                                                    <input type="submit" class="btn btn-primary submit pull-right" value="Thanh toán" onclick="window.location.href = 'checkout.html'">
-                                                </p>
-                                                <p class="form-submit">
-                                                    <input type="submit" class="btn btn-primary continue-shopping pull-left" value="Tiếp tục mua sắm" title="Quay về trang chủ">
-                                                </p>
-                                            </div>                                        
-                                        </div>
+                                                <div class="cart-bottom-total">
+                                                    <div class="table-total  col-sm-4 col-sm-offset-8 no-padding">
+                                                        <table class=" table table-bordered">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="text-right"><strong>Tổng:</strong></td>
+                                                                    <td class="text-right"><strong><s:property value="cart.totalPrice"/></strong></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
 
-                                        <div class="col-ld-4 col-md-5 col-sm-12 col-xs-12">
-                                            <h3>Địa chỉ nhận hàng</h3>
-                                            <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal ">
-                                                <fieldset class="">
-                                                    <div class="content">
-                                                        <div class="form-group required">
-                                                            <label class="col-sm-3 control-label" for="input-name">Tên của bạn</label>
-                                                            <div class="col-sm-9">
-                                                                <input type="text" name="name" value="" id="input-name" class="form-control"  placeholder="Ví dụ: Phạm Ngọc Linh" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group required">
-                                                            <label class="col-sm-3 control-label" for="input-email">Số điện thoại</label>
-                                                            <div class="col-sm-9">
-                                                                <input type="text" name="email" value="" id="input-email" class="form-control" placeholder="Ví dụ: 0909 999 999" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group required">
-                                                            <label class="col-sm-3 control-label" for="input-email">Địa chỉ email</label>
-                                                            <div class="col-sm-9">
-                                                                <input type="text" name="email" value="" id="input-email" class="form-control" placeholder="Ví dụ: 12520228@gm.uit.edu.vn" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group required">
-                                                            <label class="col-sm-3 control-label" for="input-email">Tỉnh/Thành phố</label>
-                                                            <div class="col-sm-9">
-                                                                <select name="" id="" class="form-control">
-                                                                    <option value="">Thành phố Hồ Chí Minh</option>
-                                                                    <option value="">Hà Nội</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group required">
-                                                            <label class="col-sm-3 control-label" for="input-email">Quận/Huyện</label>
-                                                            <div class="col-sm-9">
-                                                                <select name="" id="" class="form-control">
-                                                                    <option value="">Quận 1</option>
-                                                                    <option value="">Quận 2</option>
-                                                                    <option value="">Quận Bình Thạnh</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group required">
-                                                            <label class="col-sm-3 control-label" for="input-email">Xã/Phường</label>
-                                                            <div class="col-sm-9">
-                                                                <select name="" id="" class="form-control">
-                                                                    <option value="">Xã Thị Trấn</option>
-                                                                    <option value="">Xã Gia Lộc</option>
-                                                                    <option value="">Phường Tân Đông Hiệp</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group required">
-                                                            <label class="col-sm-3 control-label" for="input-email">Số nhà, đường</label>
-                                                            <div class="col-sm-9">
-                                                                <input type="text" name="email" value="" id="input-email" class="form-control" placeholder="Ví dụ: 78/1 Phan Đình Phùng" />
-                                                            </div>
-                                                        </div>
                                                     </div>
+                                                   
+                                                    <p class="form-submit">
+                                                        <button type="button" onclick="window.location.href='home';" class="btn btn-primary continue-shopping pull-left" title="Quay về trang chủ">Tiếp tục mua sắm</button>
+                                                    </p>
+                                                </div>                                        
+                                            </div>
 
-                                                </fieldset>
+                                            <div class="col-ld-4 col-md-5 col-sm-12 col-xs-12">
+                                                <h3>Địa chỉ nhận hàng</h3>
+                                                <form action="checkout" method="post" class="form-horizontal ">
+                                                    <fieldset class="">
+                                                        <div class="content">
+                                                            <div class="form-group required">
+                                                                <label class="col-sm-3 control-label" for="input-receiver-name">Tên người nhận</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" required="" name="order.receiverName" value="" id="input-receiver-name" class="form-control"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group required">
+                                                                <label class="col-sm-3 control-label" for="input-receiving-address">Địa chỉ nhận</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" required="" name="order.receivingAddress" value="" id="input-receiving-address" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group required">
+                                                                <label class="col-sm-3 control-label" for="input-receiver-phone-number">Số điện thoại người nhận</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="tel" required="" name="order.receiverPhoneNumber" value="" id="input-receiver-phone-number" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                    <input type="submit" class="btn btn-primary submit pull-right" value="Đặt hàng">
+                                                </form>
+                                            </div>
+                                        </s:else>
 
-                                            </form>
-                                        </div>
+
                                         <!-- end1 -->
                                     </div>
                                     <!-- end -->
@@ -815,7 +609,7 @@
                                             <div class="box-heading"><span>Thông tin</span></div>
                                             <div class="box-content">
                                                 <ul class="list bullet text-fill">
-                                                    <li><a href="index.jsp" data-hover="Trang chủ">Trang chủ</a></li>
+                                                    <li><a href="home" data-hover="Trang chủ">Trang chủ</a></li>
                                                     <li><a href="about.jsp" data-hover="Giới thiệu">Giới thiệu</a></li>
                                                     <li><a href="category.jsp" data-hover="Sản phẩm">Sản phẩm</a></li>
                                                     <li><a href="blog.jsp" data-hover="Tin tức">Tin tức</a></li>

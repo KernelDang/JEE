@@ -1,0 +1,80 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="model.CartDetail"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="model.Cart"%>
+<%@ page pageEncoding="UTF-8" %>
+<div id="topbar">
+    <div class="container">
+        <div class="show-desktop">
+            <% if (session.getAttribute("account") == null) {%>
+            <div class="quick-access links-outline  pull-left hidden-xs ">
+                <a href="register.jsp">Đăng kí</a> or
+                <a href="login.jsp">Đăng nhập</a>
+            </div>
+            <%}%>
+            <div class="quick-top-link pull-right">
+                <ul class="links hidden-xs">
+                    <% if (session.getAttribute("account") != null) {%>
+                    <li><a href="logout"><i class="fa fa-user"></i>Đăng xuất</a></li>
+                        <%}%>
+                    <li>
+                        <a href="cart">
+                            <i class="fa fa-shopping-cart icon-cart"></i>Giỏ hàng
+                            <span id="total-products">
+                                <%! int totalProducts = 0;%>
+                                <%
+                                    Cart cart = (Cart) session.getAttribute("cart");
+                                    if (cart != null) {
+                                        totalProducts = 0;
+                                        for (Iterator it = cart.getCartdetails().iterator(); it.hasNext();) {
+                                            CartDetail cd = (CartDetail) it.next();
+                                            totalProducts += cd.getQuantity();
+                                        }
+                                    }
+                                %>
+                                (<%=totalProducts%>)
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Single button -->
+                <div class="btn-group setting">
+                    <div class="dropdown-toggle btn-theme-normal" data-toggle="dropdown">
+                        <i class="fa fa-cog"></i>
+                        <span class="text-label">Tùy chọn</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                    <div class="quick-setting dropdown-menu">
+                        <div class="language">
+                            <form action="#" method="post" enctype="multipart/form-data" id="language">
+                                <div class=" box-language">
+                                    <label>Ngôn ngữ</label>
+                                    <ul class=" langs-wrapper">
+                                        <li>
+                                            <a href="ar"><img src="image/flags/ar.png" alt="Arabic" title="Arabic" /> Tiếng Việt</a>
+                                        </li>
+                                        <li>
+                                            <a href="en"><img src="image/flags/gb.png" alt="English" title="English" /> English</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="currency">
+                            <form action="#" method="post" id="currency">
+                                <div class="box-currency">
+                                    <label>Đơn vị</label>
+                                    <ul class="">
+                                        <li><button class="currency-select list-item" type="button" name="EUR">đ</button>: VNĐ</li>
+                                        <li><button class="currency-select list-item" type="button" name="USD">$ </button>: USD</li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

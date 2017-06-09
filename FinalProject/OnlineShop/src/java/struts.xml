@@ -5,6 +5,134 @@
 <struts>
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+        <action name="/">
+            <result type="redirectAction">home</result>
+        </action>
+        <action name="home" class="action.HomeAction">
+            <result>/index.jsp</result>
+        </action>
+        <action name="product" class="action.ProductAction">
+            <result>/product.jsp</result>
+        </action>
+        <action name="addProduct" class="action.AddProductAction">
+            <result type="json"></result>
+        </action>
+        <action name="cart" class="action.CartAction">
+            <result>/cart.jsp</result>
+        </action>
+        <action name="checkout" class="action.CheckoutAction">
+            <result>/checkout.jsp</result>
+        </action>
+        <action name="login" class="action.LoginAction">
+            <result type="redirectAction">home</result>
+            <result name="input">/login.jsp</result>
+        </action>
+        <action name="logout" class="action.LogoutAction">
+            <result type="redirectAction">home</result>
+        </action>
+        <action name="register" class="action.RegisterAction">
+            <result type="redirectAction">home</result>
+            <result name="input">/register.jsp</result>
+        </action>
+    </package>
+    <package name="admin" namespace="/admin" extends="struts-default">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+        <interceptors>
+            <interceptor name="securityIntercepter" class="interceptor.admin.SecurityInterceptor"></interceptor>
+            <interceptor-stack name="secureStack">
+                <interceptor-ref name="securityIntercepter"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="secureStack"/>
+
+        <action name="login" class="action.admin.LoginAction">
+            <result name="input">/admin/login.jsp</result>
+            <result name="success" type="redirect">dashboard</result>
+        </action>
         
+        <action name="logout" class="action.admin.LogoutAction">
+            <result name="login" type="redirect">login.jsp</result>
+            <result name="success" type="redirect">login.jsp</result>
+        </action>
+        
+        <action name="dashboard" class="action.admin.DashboardAction">
+            <result name="login" type="redirect">login.jsp</result>
+            <result name="success">/admin/dashboard.jsp</result>
+        </action>
+        
+        <action name="order" class="action.admin.OrderAction">
+            <result name="login" type="redirect">login.jsp</result>
+            <result name="success">/admin/order.jsp</result>
+        </action>
+        
+        <action name="getOrderDetails" class="action.admin.OrderAction" method="getOrderDetails">
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success" type="json">
+                <param name="root">orderDetailsResult</param>
+            </result>
+        </action>
+        
+        <action name="product" class="action.admin.ProductAction">
+            <result name="login" type="redirect">login.jsp</result>
+            <result name="success">/admin/product.jsp</result>
+        </action>
+        
+        <action name="addProduct" class="action.admin.ProductAction" method="add">
+            <result name="login" type="redirect">login.jsp</result>
+            <result name="input">/admin/product.jsp</result>
+            <result name="success" type="redirect">product</result>
+        </action>
+        
+        <action name="supplier" class="action.admin.SupplierAction">
+            <result name="login" type="redirect">login.jsp</result>
+            <result name="success">/admin/supplier.jsp</result>
+        </action>
+        
+        <action name="createSupplier" class="action.admin.SupplierAction" method="create">
+            <result name="login" type="httpheader">
+                <param name="error">305</param>      
+            </result>
+            <result name="error" type="httpheader">
+                <param name="error">305</param>      
+            </result>
+            <result name="success" type="httpheader">
+                <param name="status">200</param>
+            </result>
+        </action>
+        
+        <action name="updateSupplier" class="action.admin.SupplierAction" method="update">
+            <result name="login" type="httpheader">
+                <param name="error">305</param>      
+            </result>
+            <result name="error" type="httpheader">
+                <param name="error">305</param>      
+            </result>
+            <result name="success" type="httpheader">
+                <param name="status">200</param>
+            </result>
+        </action>
+        
+        <action name="deleteSupplier" class="action.admin.SupplierAction" method="delete">
+            <result name="login" type="httpheader">
+                <param name="error">305</param>      
+            </result>
+            <result name="error" type="httpheader">
+                <param name="error">305</param>      
+            </result>
+            <result name="success" type="httpheader">
+                <param name="status">200</param>
+            </result>
+        </action>
+        
+        <action name="account" class="action.admin.AccountAction">
+            <result name="login" type="redirect">login.jsp</result>
+            <result name="success">/admin/account.jsp</result>
+        </action>
     </package>
 </struts>
